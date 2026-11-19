@@ -1,0 +1,1761 @@
+
+      <tangy-form id="form-5a2344a6-ff85-4c70-9e79-697ecd5517c2" title="Letters - Kenyan Version - Endline" category="null"
+        
+         open-in-fullscreen
+         fullscreen-inline
+        fullscreen-nav-align="bottom"
+        
+        on-open="
+          
+          
+        
+        
+        "
+        exit-clicks=""
+        cycle-sequences="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33"
+        on-change="
+          
+          
+        
+        
+        "
+        on-submit="
+          
+          
+        
+        
+        "
+        on-resubmit="
+          
+          
+        
+        
+        "
+      >
+        
+          <tangy-form-item id="sec_consent" 
+            title="Consent"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-box name="instructions_consent" class="" style="">
+        <p>"Hello. My name is ____ and I live in _____.<br>
+          I am here today because my team is developing a learning game for children.<br>
+          We would like your help with that.<br>
+          First, I want to tell you a bit more about myself. My/I ___ [favorite book, etc.]."
+        </p>
+        <p>"To help us with this game, you will be given this tablet device to play a little learning game
+          [point to tablet].<br>
+          This game is brand new and we are still improving it.<br>
+          The game will ask you to read some letters, numbers, words and a short story as well as do some
+          number games.<br>
+          The game will take about 15 minutes to play.<br>
+          This is NOT a test for school, and it will not affect your grade at school.<br>
+          No one - not your parents, friends, teacher, or head teacher - will know these are your answers."
+        </p>
+        <p>"You do not have to participate if you do not wish to.<br>
+          Once we begin, if at any time you want to stop playing the game, that's also all right.<br>
+          Do you have any questions?"<br>
+        </p>
+        <p><em>[answer questions, then go to each child and ask]</em> "Do you want to do this activity?"<br></p>
+        <p><em>[If student says 'yes', say </em>'Great, thank you so much. You can play this game on your own,
+          just tap this button and follow the instructions,'<em>and make sure the child proceeds to the first
+          element; if student says 'no', say, </em>'It is ok not to participate. You can now return to
+          your [teacher/class/recess...]]'."</p>
+      </tangy-box>
+      <tangy-consent name="consent" required="" error-text="" warn-text="" class="" style="" prompt="Does the child consent?"></tangy-consent>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_school_id" 
+            title="School"
+            
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+
+            
+            
+            "
+            on-change="
+var school = (inputs.location.value || []).filter(function (l) { return l.level == 'school_name' })[0];
+inputs.school_id.value = (school && school.value) || '';
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-location name="location" required="" question-number="" label="Select the school" hint-text="" error-text="" warn-text="" class="" style="" show-levels="" location-src="./assets/location-list.json"></tangy-location>
+      <tangy-input name="school_id" hidden="" type="text" question-number="" label="" hint-text="" error-text="" warn-text="" class="" style="" inner-label="" allowed-pattern=""></tangy-input>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+        
+        
+        
+          <tangy-form-item id="sec_student_id" 
+            title="Student ID"
+            
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-select name="student_grade" required="" question-number="" label="Select the student's grade" hint-text="" error-text="" warn-text="" class="" style="">
+          <option value="1">Grade 1</option>
+          <option value="2">Grade 2</option>
+          <option value="3">Grade 3</option>
+      </tangy-select>
+      <tangy-input name="student_number" required="" question-number="" label="Enter the student's number from the sampling sheet" hint-text="This is the line number on the class register. It is not 1-6." error-text="" warn-text="" class="" style="" type="number" inner-label="" allowed-pattern=""></tangy-input>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_student_confirm" 
+            title="Confirm student ID"
+            
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    inputs.student_id.value = getValue('school_id') + 'G' + getValue('student_grade')
+                              + 'X' + getValue('student_number');
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-input type="text" name="student_id" disabled="" label="Student ID" hint-text="Read this back and check it matches the sampling sheet." class="" style=""></tangy-input>
+      <tangy-select name="student_id_confirm" required="" label="ENUMERATOR: Does this match the student ID on the sampling sheet?" hint-text="If not, tap Back and correct the grade or number." class="" style="">
+        <option value="1">Yes</option>
+        <option value="0">No</option>
+      </tangy-select>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="student_name" 
+            title="student_name"
+            
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-select name="student_gender" required="" question-number="" label="Select the student's gender" hint-text="" error-text="" warn-text="" class="" style="">
+        <option value="0">Male</option>
+        <option value="1">Female</option>
+      </tangy-select>
+      <tangy-input type="text" allowed-pattern="" inner-label="" name="student_firstname" required="" question-number="" label="Enter the student's first name" hint-text="" error-text="" warn-text="" class="" style=""></tangy-input>
+      <tangy-input type="text" allowed-pattern="" inner-label="" name="student_lastname" required="" question-number="" label="Enter the student's last name" hint-text="" error-text="" warn-text="" class="" style=""></tangy-input>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="opening_staging" 
+            title="Staging: Hand to Child"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Letter_1. Staging_ Hand to Child.m4a', 'instructions');
+    play();
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-box name="ready-to-start" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="welcome-tangerine">
+          <img src="./assets/media/ms-passive.png" style="max-height:498px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="" id="thank-you">
+        </div>
+      </tangy-box>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/Letter_1. Staging_ Hand to Child.m4a','instructions'); play();" id="instructions">
+          <img src="" style="" class="talk" onclick="" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_letter_sounds_demo" 
+            title="Letter Sound - Demo Item"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Letter_2. Letter sounds_ Demo Item.m4a','instructions');
+    play();
+    document.styleSheets[1].removeRule(6);
+    document.styleSheets[1].addRule('body',`background-color: rgb(247, 246, 246) !important; height: 100% !important; display: flex !important; flex-direction: column !important; justify-content: center !important; align-items: center !important; font-family: Andika, sans-serif !important; font-size: 1.3rem !important; font-weight: 400 !important; line-height: 1.5 !important; margin: 0px !important; color: rgb(33, 33, 33) !important; background-image: url('./images/blue_hills_75.png') !important; background-size: cover !important; background-attachment: fixed !important; background-repeat: no-repeat !important; `,6);
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-radio-blocks name="letter_sounds_demo" label="" class="" style="" orientation="columns" required="" disabled="">
+          <option value="b">b</option>
+          <option value="t">t</option>
+          <option value="m">m</option>
+          <option value="d">d</option>
+          <option value="p">p</option>
+      </tangy-radio-blocks>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/Letter_2. Letter sounds_ Demo Item.m4a','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Letter_3. Letter sound - Practice.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_letter_sounds_prac_01" 
+            title="Letter Sound - Practice"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Letter_4.m4a','prompt');
+    play();
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-radio-blocks name="letter_sounds_prac_01" label="" class="" style="" orientation="columns" required="">
+          <option value="b">b</option>
+          <option value="t">t</option>
+          <option value="m">m</option>
+          <option value="d">d</option>
+          <option value="p">p</option>
+      </tangy-radio-blocks>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/letters_letter_sounds_help.mp3','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Letter_4 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_letter_sounds_prac_02" 
+            title="Letter Sound - Practice Feedback"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    if (getValue('letter_sounds_prac_01') == 'd')
+        queue('./assets/media/Letter_5.m4a','prompt');
+    else
+        queue('./assets/media/Letter_6.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-radio-blocks name="letter_sounds_prac_02" label="" class="" style="" orientation="columns" disabled="" not-demo-required="">
+          <option value="b">b</option>
+          <option value="t">t</option>
+          <option value="m">m</option>
+          <option value="d"><b>d</b></option>
+          <option value="p">p</option>
+      </tangy-radio-blocks>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/Letter_7.m4a','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Letter_8.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_letter_sounds_01" 
+            title="Letter Sound - Item 1"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Letter_9.m4a','prompt');
+    play();
+    document.styleSheets[1].removeRule(6);
+    document.styleSheets[1].addRule('body',`background-color: rgb(247, 246, 246) !important; height: 100% !important; display: flex !important; flex-direction: column !important; justify-content: center !important; align-items: center !important; font-family: Andika, sans-serif !important; font-size: 1.3rem !important; font-weight: 400 !important; line-height: 1.5 !important; margin: 0px !important; color: rgb(33, 33, 33) !important; background-image: url('./images/orange_hills_75.png') !important; background-size: cover !important; background-attachment: fixed !important; background-repeat: no-repeat !important; `,6);
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-radio-blocks name="letter_sounds_01" label="" class="" style="" orientation="columns" required="">
+          <option value="b">b</option>
+          <option value="u">u</option>
+          <option value="m">m</option>
+          <option value="n">n</option>
+          <option value="w">w</option>
+      </tangy-radio-blocks>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/letters_letter_sounds_help.mp3','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Letter_9 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_letter_sounds_02" 
+            title="Letter Sound - Item 2"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Letter_12.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-radio-blocks name="letter_sounds_02" label="" class="" style="" orientation="columns" required="">
+          <option value="s">s</option>
+          <option value="f">f</option>
+          <option value="h">h</option>
+          <option value="z">z</option>
+          <option value="sh">sh</option>
+      </tangy-radio-blocks>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/letters_letter_sounds_help.mp3','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Letter_11 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_letter_sounds_03" 
+            title="Letter Sound - Item 3"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Letter_13.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-radio-blocks name="letter_sounds_03" label="" class="" style="" orientation="columns" required="">
+          <option value="y">y</option>
+          <option value="q">q</option>
+          <option value="j">j</option>
+          <option value="g">g</option>
+          <option value="k">k</option>
+      </tangy-radio-blocks>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/letters_letter_sounds_help.mp3','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Letter_13 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_letter_sounds_04" 
+            title="Letter Sound - Item 4"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Letter_15.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-radio-blocks name="letter_sounds_04" label="" class="" style="" orientation="columns" required="">
+          <option value="c">c</option>
+          <option value="ch">ch</option>
+          <option value="sh">sh</option>
+          <option value="th">th</option>
+          <option value="ck">ck</option>
+      </tangy-radio-blocks>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/letters_letter_sounds_help.mp3','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Letter_15 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_letter_sounds_05" 
+            title="Letter Sound - Item 5"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Letter_17.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-radio-blocks name="letter_sounds_05" label="" class="" style="" orientation="columns" required="">
+          <option value="u">u</option>
+          <option value="i">i</option>
+          <option value="d">d</option>
+          <option value="e">e</option>
+          <option value="a">a</option>
+      </tangy-radio-blocks>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/letters_letter_sounds_help.mp3','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Letter_17 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_letter_sounds_06" 
+            title="Letter Sound - Item 6"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Letter_19.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-radio-blocks name="letter_sounds_06" label="" class="" style="" orientation="columns" required="">
+          <option value="d">d</option>
+          <option value="l">l</option>
+          <option value="t">t</option>
+          <option value="f">f</option>
+          <option value="s">s</option>
+      </tangy-radio-blocks>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/letters_letter_sounds_help.mp3','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Letter_19 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_letter_sounds_07" 
+            title="Letter Sound - Item 7"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Letter_21.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-radio-blocks name="letter_sounds_07" label="" class="" style="" orientation="columns" required="">
+          <option value="u">u</option>
+          <option value="r">r</option>
+          <option value="v">v</option>
+          <option value="n">n</option>
+          <option value="m">m</option>
+      </tangy-radio-blocks>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/letters_letter_sounds_help.mp3','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Letter_21 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_letter_sounds_08" 
+            title="Letter Sound - Item 8"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Letter_23.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-radio-blocks name="letter_sounds_08" label="" class="" style="" orientation="columns" required="">
+          <option value="s">s</option>
+          <option value="f">f</option>
+          <option value="v">v</option>
+          <option value="k">k</option>
+          <option value="t">t</option>
+      </tangy-radio-blocks>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/letters_letter_sounds_help.mp3','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Letter_23 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_letter_sounds_09" 
+            title="Letter Sound - Item 9"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Letter_25.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-radio-blocks name="letter_sounds_09" label="" class="" style="" orientation="columns" required="">
+          <option value="p">p</option>
+          <option value="q">q</option>
+          <option value="d">d</option>
+          <option value="m">m</option>
+          <option value="b">b</option>
+      </tangy-radio-blocks>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/letters_letter_sounds_help.mp3','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Letter_25 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_letter_sounds_10" 
+            title="Letter Sound - Item 10"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Letter_27.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-radio-blocks name="letter_sounds_10" label="" class="" style="" orientation="columns" required="">
+          <option value="o">o</option>
+          <option value="e">e</option>
+          <option value="i">i</option>
+          <option value="c">c</option>
+          <option value="u">u</option>
+      </tangy-radio-blocks>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/letters_letter_sounds_help.mp3','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Letter_27 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_spelling_demo" 
+            title="Spelling - Demo Item"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Spelling_1.m4a','instructions');
+    play();
+    document.styleSheets[1].removeRule(6);
+    document.styleSheets[1].addRule('body',`background-color: rgb(247, 246, 246) !important; height: 100% !important; display: flex !important; flex-direction: column !important; justify-content: center !important; align-items: center !important; font-family: Andika, sans-serif !important; font-size: 1.3rem !important; font-weight: 400 !important; line-height: 1.5 !important; margin: 0px !important; color: rgb(33, 33, 33) !important; background-image: url('./images/blue_hills_75.png') !important; background-size: cover !important; background-attachment: fixed !important; background-repeat: no-repeat !important; `,6);
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-box name="blank-instructions-box" class="" style="">
+        <div style="text-align:center;padding:4rem 1.2rem;background-color:#fff;border-radius:1rem;" height="800px"></div>
+      </tangy-box>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/Spelling_2.m4a','instructions'); play();" id="instructions">
+          <img src="" style="" class="talk" onclick="" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_spelling_prac" 
+            title="Spelling - Practice"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Spelling_4.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-keyboard-input prefix="" postfix="" keys="a b c d e f g h i j k l m n o p q r s t u v w x y z" name="spelling_prac" label="" class="" style="" required=""></tangy-keyboard-input>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/Spelling_2.m4a','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Spelling_4 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="sec_spelling_prac_feedback" 
+            title="Spelling - Practice Feedback"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    if (getValue('spelling_prac') == 'ran')
+        queue('./assets/media/letters_spelling_practice_answer_correct.mp3','prompt');
+    else
+        queue('./assets/media/Spelling_5.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-keyboard-input prefix="" postfix="" keys="a b c d e f g h i j k l m n o p q r s t u v w x y z" name="spelling_prac_feedback" label="" class="" style="" not-demo-required=""></tangy-keyboard-input>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/letters_spelling_ready.mp3','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Spelling_4 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="spelling_01" 
+            title="Spelling - Item 1"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Spelling_7.m4a','prompt');
+    play();
+    document.styleSheets[1].removeRule(6);
+    document.styleSheets[1].addRule('body',`background-color: rgb(247, 246, 246) !important; height: 100% !important; display: flex !important; flex-direction: column !important; justify-content: center !important; align-items: center !important; font-family: Andika, sans-serif !important; font-size: 1.3rem !important; font-weight: 400 !important; line-height: 1.5 !important; margin: 0px !important; color: rgb(33, 33, 33) !important; background-image: url('./images/orange_hills_75.png') !important; background-size: cover !important; background-attachment: fixed !important; background-repeat: no-repeat !important; `,6);
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-keyboard-input prefix="" postfix="" keys="a b c d e f g h i j k l m n o p q r s t u v w x y z" name="spelling_01" label="" class="" style="" required=""></tangy-keyboard-input>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/Spelling_2.m4a','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Spelling_7 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="spelling_03" 
+            title="Spelling - Item 3"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Spelling_10.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-keyboard-input prefix="" postfix="" keys="a b c d e f g h i j k l m n o p q r s t u v w x y z" name="spelling_03" label="" class="" style="" required=""></tangy-keyboard-input>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/Spelling_2.m4a','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Spelling_10 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="spelling_04" 
+            title="Spelling - Item 4"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Spelling_12.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-keyboard-input prefix="" postfix="" keys="a b c d e f g h i j k l m n o p q r s t u v w x y z" name="spelling_04" label="" class="" style="" required=""></tangy-keyboard-input>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/Spelling_2.m4a','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Spelling_12 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="spelling_07" 
+            title="Spelling - Item 7"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Spelling_14.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-keyboard-input prefix="" postfix="" keys="a b c d e f g h i j k l m n o p q r s t u v w x y z" name="spelling_07" label="" class="" style="" required=""></tangy-keyboard-input>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/Spelling_2.m4a','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Spelling_14 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="spelling_08" 
+            title="Spelling - Item 8"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Spelling_16.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-keyboard-input prefix="" postfix="" keys="a b c d e f g h i j k l m n o p q r s t u v w x y z" name="spelling_08" label="" class="" style="" required=""></tangy-keyboard-input>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/Spelling_2.m4a','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Spelling_16 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="spelling_09" 
+            title="Spelling - Item 9"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Spelling_18.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-keyboard-input prefix="" postfix="" keys="a b c d e f g h i j k l m n o p q r s t u v w x y z" name="spelling_09" label="" class="" style="" required=""></tangy-keyboard-input>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/Spelling_2.m4a','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Spelling_18 b.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="spelling_10" 
+            title="Spelling - Item 10"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Spelling_20.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-keyboard-input prefix="" postfix="" keys="a b c d e f g h i j k l m n o p q r s t u v w x y z" name="spelling_10" label="" class="" style="" required=""></tangy-keyboard-input>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/Spelling_2.m4a','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Spelling_20 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="spelling_11" 
+            title="Spelling - Item 11"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Spelling_22.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-keyboard-input prefix="" postfix="" keys="a b c d e f g h i j k l m n o p q r s t u v w x y z" name="spelling_11" label="" class="" style="" required=""></tangy-keyboard-input>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/Spelling_2.m4a','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Spelling_22 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="spelling_12" 
+            title="Spelling - Item 12"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Spelling_24.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-keyboard-input prefix="" postfix="" keys="a b c d e f g h i j k l m n o p q r s t u v w x y z" name="spelling_12" label="" class="" style="" required=""></tangy-keyboard-input>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/Spelling_2.m4a','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Spelling_24 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="spelling_16" 
+            title="Spelling - Item 16"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/Spelling_26.m4a','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-keyboard-input prefix="" postfix="" keys="a b c d e f g h i j k l m n o p q r s t u v w x y z" name="spelling_16" label="" class="" style="" required=""></tangy-keyboard-input>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/Spelling_2.m4a','instructions'); play();" id="instructions">
+          <img src="./assets/images/ms-talk2.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;" class="talk" onclick="queue('./assets/media/Spelling_26 a.m4a','prompt'); play();" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+          <tangy-form-item id="closing_screen" 
+            title="Closing Screen"
+             hide-back-button
+            
+            
+            
+            
+            
+            
+            
+            scoring-fields=""
+            custom-scoring-logic=""
+            on-open="
+              
+              
+    queue('./assets/media/please-return-tablet.mp3','prompt');
+    play();
+            
+            
+            "
+            on-change="
+              
+              
+            
+            
+            "
+            category="
+              
+              
+              null
+            
+            
+            "
+          >
+            <template>
+              
+              
+      <tangy-box name="thank-you-dance" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="dancing-dog">
+          <img src="./assets/media/ms-done.png" style="max-height:498px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="" id="thank-you">
+        </div>
+      </tangy-box>
+      <tangy-box name="tangerineMan" class="" style="">
+        <div style="display:flex;margin-bottom:-2rem;" id="audios">
+          <img src="./assets/media/instructions.png" style="max-height:100px;width:auto;border-radius:0.5rem;border:5px solid transparent;margin-right:0.5rem;" onclick="queue('./assets/media/please-return-tablet.mp3','instructions'); play();" id="instructions">
+          <img src="" style="" class="talk" onclick="" id="prompt">
+        </div>
+      </tangy-box>
+            
+            
+            </template>
+          </tangy-form-item>
+        
+      </tangy-form>
+    

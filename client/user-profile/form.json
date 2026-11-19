@@ -1,0 +1,9 @@
+{
+  "name": "user-profile",
+  "items": [
+    {
+      "id": "item1",
+      "inputEls": []
+    }
+  ]
+}

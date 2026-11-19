@@ -1,0 +1,204 @@
+[
+  {
+    "id": "form-15f85bfc-8f92-4bf3-82d4-e1f081ee331a",
+    "type": "form",
+    "title": "Letters - Kenyan Version - Midline Version A",
+    "src": "./assets/form-15f85bfc-8f92-4bf3-82d4-e1f081ee331a/form.html",
+    "searchSettings": {
+      "shouldIndex": false,
+      "variablesToIndex": [],
+      "primaryTemplate": "",
+      "secondaryTemplate": ""
+    },
+    "customSyncSettings": {
+      "enabled": false,
+      "push": false,
+      "pull": false,
+      "excludeIncomplete": false
+    },
+    "couchdbSyncSettings": {
+      "enabled": false,
+      "push": true,
+      "pull": false,
+      "filterByLocation": false
+    },
+    "archived": false
+  },
+  {
+    "id": "form-e6e501ab-a50b-415b-8af8-e2608eb688a0",
+    "type": "form",
+    "title": "Numbers - Kenyan Version - Midline Version A",
+    "src": "./assets/form-e6e501ab-a50b-415b-8af8-e2608eb688a0/form.html",
+    "searchSettings": {
+      "shouldIndex": false,
+      "variablesToIndex": [],
+      "primaryTemplate": "",
+      "secondaryTemplate": ""
+    },
+    "customSyncSettings": {
+      "enabled": false,
+      "push": false,
+      "pull": false,
+      "excludeIncomplete": false
+    },
+    "couchdbSyncSettings": {
+      "enabled": false,
+      "push": true,
+      "pull": false,
+      "filterByLocation": false
+    },
+    "archived": false
+  },
+  {
+    "id": "user-profile",
+    "src": "./assets/user-profile/form.html",
+    "description": "User Profile",
+    "archived": true,
+    "title": "User Profile",
+    "icon": "perm_identity",
+    "type": "user-profile",
+    "searchSettings": {
+      "shouldIndex": false,
+      "primaryTemplate": "",
+      "secondaryTemplate": "",
+      "variablesToIndex": []
+    },
+    "customSyncSettings": {
+      "enabled": false,
+      "push": false,
+      "pull": false,
+      "excludeIncomplete": false
+    },
+    "couchdbSyncSettings": {
+      "enabled": true,
+      "filterByLocation": true,
+      "push": true,
+      "pull": true
+    }
+  },
+  {
+    "id": "form-e69aad9d-ceae-4111-a3b8-a109bc05ba4b",
+    "type": "form",
+    "title": "Letters - Kenyan Version",
+    "src": "./assets/form-e69aad9d-ceae-4111-a3b8-a109bc05ba4b/form.html",
+    "searchSettings": {
+      "shouldIndex": false,
+      "variablesToIndex": [],
+      "primaryTemplate": "",
+      "secondaryTemplate": ""
+    },
+    "customSyncSettings": {
+      "enabled": false,
+      "push": false,
+      "pull": false,
+      "excludeIncomplete": false
+    },
+    "couchdbSyncSettings": {
+      "enabled": false,
+      "push": true,
+      "pull": false,
+      "filterByLocation": false
+    },
+    "archived": false
+  },
+  {
+    "id": "form-369bbb12-309e-425c-afcf-3dce5db4d0ac",
+    "type": "form",
+    "title": "Letters - Kenyan Version - Midline Version B",
+    "src": "./assets/form-369bbb12-309e-425c-afcf-3dce5db4d0ac/form.html",
+    "searchSettings": {
+      "shouldIndex": false,
+      "variablesToIndex": [],
+      "primaryTemplate": "",
+      "secondaryTemplate": ""
+    },
+    "customSyncSettings": {
+      "enabled": false,
+      "push": false,
+      "pull": false,
+      "excludeIncomplete": false
+    },
+    "couchdbSyncSettings": {
+      "enabled": false,
+      "push": true,
+      "pull": false,
+      "filterByLocation": false
+    },
+    "archived": false
+  },
+  {
+    "id": "form-0074109d-4deb-4fb0-9195-e840e59b9455",
+    "type": "form",
+    "title": "Numbers - Kenyan Version - Midline Version B",
+    "src": "./assets/form-0074109d-4deb-4fb0-9195-e840e59b9455/form.html",
+    "searchSettings": {
+      "shouldIndex": false,
+      "variablesToIndex": [],
+      "primaryTemplate": "",
+      "secondaryTemplate": ""
+    },
+    "customSyncSettings": {
+      "enabled": false,
+      "push": false,
+      "pull": false,
+      "excludeIncomplete": false
+    },
+    "couchdbSyncSettings": {
+      "enabled": false,
+      "push": true,
+      "pull": false,
+      "filterByLocation": false
+    },
+    "archived": false
+  },
+  {
+    "id": "form-5a2344a6-ff85-4c70-9e79-697ecd5517c2",
+    "type": "form",
+    "title": "Letters - Kenyan Version - Endline",
+    "src": "./assets/form-5a2344a6-ff85-4c70-9e79-697ecd5517c2/form.html",
+    "searchSettings": {
+      "shouldIndex": false,
+      "variablesToIndex": [],
+      "primaryTemplate": "",
+      "secondaryTemplate": ""
+    },
+    "customSyncSettings": {
+      "enabled": false,
+      "push": false,
+      "pull": false,
+      "excludeIncomplete": false
+    },
+    "couchdbSyncSettings": {
+      "enabled": false,
+      "push": true,
+      "pull": false,
+      "filterByLocation": false
+    },
+    "archived": false
+  },
+  {
+    "id": "form-02aa1469-7988-40d5-875d-e01111eac523",
+    "type": "form",
+    "title": "Numbers - Kenyan Version - Endline",
+    "src": "./assets/form-02aa1469-7988-40d5-875d-e01111eac523/form.html",
+    "searchSettings": {
+      "shouldIndex": false,
+      "variablesToIndex": [],
+      "primaryTemplate": "",
+      "secondaryTemplate": ""
+    },
+    "customSyncSettings": {
+      "enabled": false,
+      "push": false,
+      "pull": false,
+      "excludeIncomplete": false
+    },
+    "couchdbSyncSettings": {
+      "enabled": false,
+      "push": true,
+      "pull": false,
+      "filterByLocation": false
+    },
+    "archived": false
+  }
+]
